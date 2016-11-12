@@ -18,6 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "../node_modules/primeng/resources/themes/delta/theme.css",
+       "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "styles.css"
       ],

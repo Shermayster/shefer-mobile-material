@@ -15,20 +15,21 @@ import {InputTextModule} from "primeng/components/inputtext/inputtext";
 import {ButtonModule} from "primeng/components/button/button";
 import {PasswordModule} from "primeng/components/password/password";
 import {ROUTES} from "./app.routes";
-import {ProgramComponent} from "./program.component/program.component";
+import {ProgramComponent} from "./protected/program.component/program.component";
+import {ProtectedComponent} from "./protected/protected-component/protected-component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgramComponent,
-    SignInComponent
+    SignInComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterializeModule,
     TabMenuModule,
     CheckboxModule,
     PanelModule,
@@ -36,8 +37,7 @@ import {ProgramComponent} from "./program.component/program.component";
     InputTextModule,
     ButtonModule,
     PasswordModule,
-    ROUTES,
-    MaterialModule.forRoot()
+    ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]
