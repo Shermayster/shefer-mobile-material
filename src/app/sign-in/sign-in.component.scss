@@ -1,0 +1,25 @@
+@import "../common/variables";
+
+body {
+
+}
+h3 {
+  text-align: center;
+}
+.sign-in {
+  background-color: $dark-color;
+  &:first-child {
+    margin-top: 12rem;
+  }
+.ui-password-meter {
+  display:none;
+}
+  input {
+
+    display: block;
+    margin: 1rem auto;
+  }
+  button {
+    @extend input;
+  }
+}

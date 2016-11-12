@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<app-sign-in *ngIf="!signin" (enterTo)="enterTo()"></app-sign-in>
+<p-tabView *ngIf="signin">
+  <p-tabPanel header="מידע" leftIcon="fa-info-circle">
+    <div>
+      <img src="../assets/pics/generaldmot.svg" alt="">
+    </div>
+    <div class="tip-panel">
+      <p-panel header="טיפ למשבה"  >
+        {{tip}}
+      </p-panel>
+    </div>
+  <div class="message-panel">
+
+    <p-panel header="הודעה"  >
+      {{message}}
+    </p-panel>
+  </div>
+    </p-tabPanel>
+  <p-tabPanel header="תוכנית" leftIcon="fa-tasks">
+    <div class="progress-icons">
+      <img src="../assets/pics/progress-pics/home.svg" alt="" >
+    </div>
+    </p-tabPanel>
+</p-tabView>
+

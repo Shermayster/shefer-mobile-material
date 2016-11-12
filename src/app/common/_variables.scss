@@ -1,0 +1,20 @@
+//fonts
+html, body, .ui-widget, h3, h1, h2, p {
+  direction: rtl !important;
+  font-size: 16px;
+  font-family: 'Noto Sans Hebrew', sans-serif;
+}
+
+//colors
+$primary-color: rgba(53, 167, 255, 1);
+$secondary-color: rgba(255, 89, 100, 1);
+$dark-color: #41463d;
+$warnig-color: rgba(255, 231, 76, 1);
+$success-color: rgba(99, 226, 102, 1);
+$secondary-light: #A191FF;
+//light to dark colors
+$lighter-color: #F0F0F0;
+$light-color: #D4d4d4;
+$base-color:#636363;
+$dark-color: #2b2b2b;
+$darker-color:#0f0f0f;

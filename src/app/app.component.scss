@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
+@import "../../node_modules/primeng/resources/themes/delta/theme.css";
+@import "../../node_modules/primeng/resources/primeng.min.css";
+@import 'common/_variables.scss';
+
+body {
+  background-color: $lighter-color;
+}
+.ui-tabview .ui-tabview-nav li {
+
+  width: 48%;
+  a {
+    width: 8rem;
+  }
+  .ui-tabview-left-icon {
+      vertical-align: middle;
+      float: left;
+  }
+
+}
+img {
+  width: 170px;
+}
+.tip-panel {
+  margin-bottom: 1rem;
+  .ui-widget-header {
+    background: linear-gradient(to bottom, $secondary-light 0%, $secondary-light 100%);
+    color: white;
+  }
+  .ui-panel-content {
+    max-height: 8rem;
+    overflow: auto;
+  }
+}
+
+.message-panel {
+  @extend .tip-panel;
+}
+
