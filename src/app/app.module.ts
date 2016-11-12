@@ -14,10 +14,14 @@ import {TabViewModule} from "primeng/components/tabview/tabview";
 import {InputTextModule} from "primeng/components/inputtext/inputtext";
 import {ButtonModule} from "primeng/components/button/button";
 import {PasswordModule} from "primeng/components/password/password";
+import {ROUTES} from "./app.routes";
+import {ProgramComponent} from "./program.component/program.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProgramComponent,
     SignInComponent
   ],
   imports: [
@@ -32,6 +36,7 @@ import {PasswordModule} from "primeng/components/password/password";
     InputTextModule,
     ButtonModule,
     PasswordModule,
+    ROUTES,
     MaterialModule.forRoot()
   ],
   providers: [],
