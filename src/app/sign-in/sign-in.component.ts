@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -9,13 +10,13 @@ import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from 
 export class SignInComponent implements OnInit {
  @Input() signin:boolean;
   @Output() enterTo = new EventEmitter();
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit() {
   }
 
   enter() {
-    this.enterTo.emit(true);
+    this.router.navigate(['./protected'])
   }
 
 }
