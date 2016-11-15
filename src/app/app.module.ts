@@ -17,6 +17,9 @@ import {PasswordModule} from "primeng/components/password/password";
 import {ROUTES} from "./app.routes";
 import {ProgramComponent} from "./protected/program.component/program.component";
 import {ProtectedComponent} from "./protected/protected-component/protected-component";
+import {FieldsetModule} from "primeng/components/fieldset/fieldset";
+import {TaskComponent} from "./protected/task-component/task.component";
+import {AccordionModule} from "primeng/components/accordion/accordion";
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import {ProtectedComponent} from "./protected/protected-component/protected-comp
     AppComponent,
     ProgramComponent,
     SignInComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ import {ProtectedComponent} from "./protected/protected-component/protected-comp
     InputTextModule,
     ButtonModule,
     PasswordModule,
+    FieldsetModule,
+    AccordionModule,
     ROUTES
   ],
   providers: [],

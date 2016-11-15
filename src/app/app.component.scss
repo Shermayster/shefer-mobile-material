@@ -62,13 +62,11 @@ img {
   }
   .ui-button {
     display: block;
-
     width: 12rem;
-    margin: 1rem auto;
+    margin: .5rem auto;
     width: 14rem;
     font-size: 1.5rem;
     text-align: right;
-
     &.success {
       background: linear-gradient(to bottom, $success-color 0%, $success-background 100%);
       box-shadow: 0 1px 0 $success-color inset, 0 1px 2px rgba(0,0,0,0.2) !important;
@@ -77,5 +75,26 @@ img {
   }
   .ui-button-text-icon-left .fa {
     margin-top: -.8rem;
+  }
+}
+.tasks-buttons {
+  @extend .category-buttons;
+}
+.feedback-buttons {
+  @extend .category-buttons;
+  .ui-button {
+    &.success-btn {
+      @extend .success;
+    }
+    &.meh-btn {
+      background: linear-gradient(to bottom, $base-color 0%, $dark-color 100%);
+      box-shadow: 0 1px 0 $base-color inset, 0 1px 2px rgba(0,0,0,0.2) !important;
+      border: 1px solid $base-color;
+    }
+    &.frown-btn {
+      background: linear-gradient(to bottom, $secondary-color 0%, $secondary-dark-color 100%);
+      box-shadow: 0 1px 0 $secondary-color inset, 0 1px 2px rgba(0,0,0,0.2) !important;
+      border: 1px solid $secondary-color;
+    }
   }
 }

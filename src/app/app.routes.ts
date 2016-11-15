@@ -4,6 +4,7 @@ import {ProgramComponent} from "./protected/program.component/program.component"
 import {ModuleWithProviders} from "@angular/core";
 import {SignInComponent} from "./sign-in/sign-in.component";
 import {ProtectedComponent} from "./protected/protected-component/protected-component";
+import {TaskComponent} from "./protected/task-component/task.component";
 /**
  * Created by sherm on 11/12/2016.
  */
@@ -13,6 +14,7 @@ import {ProtectedComponent} from "./protected/protected-component/protected-comp
 const  appRoutes: Routes = [
   {path: 'enter', component: SignInComponent},
   {path: 'protected', component: ProtectedComponent},
+  {path: 'task', component: TaskComponent},
   { path: '', redirectTo:'/enter', pathMatch: 'full'},
   {path: 'program', component: ProgramComponent}
 ]
