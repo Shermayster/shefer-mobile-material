@@ -1,5 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {Router} from "@angular/router";
+import {HttpService} from "../services/http.service";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -8,15 +10,23 @@ import {Router} from "@angular/router";
   encapsulation: ViewEncapsulation.None
 })
 export class SignInComponent implements OnInit {
- @Input() signin:boolean;
+  @Input() signin:boolean;
   @Output() enterTo = new EventEmitter();
-  constructor( private router: Router) { }
+  constructor( private router: Router, private httpService:HttpService, private dataService:DataService) { }
 
   ngOnInit() {
   }
 
-  enter() {
-    this.router.navigate(['./protected'])
+  submit() {
+    this.httpService.getFamily()
+      .subscribe(data => {
+        this.dataService.setFamilyData(data);
+        this.router.navigate(['./protected'])
+      },
+      error=> {
+        //todo add error handling
+      }
+      )
   }
 
 }
