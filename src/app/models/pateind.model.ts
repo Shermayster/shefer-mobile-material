@@ -58,7 +58,7 @@ export class ActivitiesProgram {
   startDay:string;
   duration:number;
   currentWeek:number;
-  patientActivityList:patientActivity[];
+  patientActivityList:PatientActivity[];
   constructor(program: {
     programID?:number,
     patientId?:number,
@@ -75,7 +75,7 @@ export class ActivitiesProgram {
     this.currentWeek = program.currentWeek || null;
   }
 }
-export class patientActivity {
+export class PatientActivity {
   patientActivityId:number;
   activityResponce:string;
   activityFeedback:string;

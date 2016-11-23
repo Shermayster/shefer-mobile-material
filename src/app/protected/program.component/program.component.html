@@ -1,8 +1,8 @@
-<p-panel header="עצמאות בבית" [toggleable]="true">
-  <img src="../../../assets/pics/category-pics/salon_bg_final2.png" style="width: 100%" alt="עצבמאות בבית">
+<p-panel header="{{currentGroup[0].activityType}}" [toggleable]="true">
+  <img [src]="imgUrl" style="width: 100%" [alt]="currentGroup[0].activityType">
   {{content}}
 </p-panel>
 <div class="tasks-buttons">
-  <button pButton *ngFor="let task of tasks" (click)="doTask(task)" type="button" label="{{task}}" icon="fa-check" iconPos="left"></button>
+  <button pButton *ngFor="let activity of currentGroup" (click)="doActivity(activity)" type="button" label="{{activity.activityName}}" icon="fa-check" iconPos="left"></button>
 </div>
 

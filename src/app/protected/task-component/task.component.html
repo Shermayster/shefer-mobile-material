@@ -2,14 +2,8 @@
 <p-panel header="Title">
   <img src="../../../assets/pics/category-pics/salon_bg_final2.png" style="width: 100%" alt="עצבמאות בבית">
   <p-accordion [multiple]="true">
-    <p-accordionTab header="Header 1">
-      Content 1
-    </p-accordionTab>
-    <p-accordionTab header="Header 2">
-      Content 2
-    </p-accordionTab>
-    <p-accordionTab header="Header 3">
-      Content 3
+    <p-accordionTab header="{{activity.activityName}}">
+      {{activity.description}}
     </p-accordionTab>
   </p-accordion>
   <div class="feedback-buttons">

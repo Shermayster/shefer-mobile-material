@@ -53,10 +53,18 @@ img {
   }
 
 }
+.center{
+  img{
+    display: block;
+    margin: 1rem auto;
+    width: 100px;
+  }
+
+}
 .category-buttons {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 3rem;
   span {
     display: block;
   }
@@ -96,5 +104,10 @@ img {
       box-shadow: 0 1px 0 $secondary-color inset, 0 1px 2px rgba(0,0,0,0.2) !important;
       border: 1px solid $secondary-color;
     }
+  }
+  .started {
+    color: #ffffff;
+    text-shadow: 0 0 #3b3b3b;
+    background-color: #FF5964;
   }
 }

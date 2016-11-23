@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 export class HttpService {
 
     patientApi = 'http://localhost:53560/api/Family?password=321321321';
+    tipApi = 'http://localhost:4200/app/mock/tips.json';
     constructor(private http:Http) { }
 
    getFamily() {
@@ -34,5 +35,19 @@ export class HttpService {
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
+  }
+
+  getTips()  {
+    return this.http.get(this.tipApi)
+      .map(
+        res => {
+          let tips = res.json();
+          let tip;
+          tip = tips[Math.floor(Math.random()*tips.length)]
+          console.log('tip ', tip.tip);
+          return tip.tip || '';
+        }
+      )
+      .catch(this.handleError);
   }
 }

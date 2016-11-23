@@ -1,29 +1,33 @@
-<p-tabView>
+<p-tabView *ngIf="patient">
   <p-tabPanel header="מידע" leftIcon="fa-info-circle">
+    <h1 *ngIf="patient">שלום {{patient.contact.childName}}, מאוד שמח לראות אותך!</h1>
+
     <div>
       <img src="../assets/pics/generaldmot.svg" alt="">
     </div>
     <div class="tip-panel">
-      <p-panel header="טיפ למשבה">
+      <p-panel header="טיפ למחשבה" *ngIf="tip">
         {{tip}}
       </p-panel>
     </div>
   </p-tabPanel>
   <p-tabPanel header="תוכנית" leftIcon="fa-tasks">
-
-    <div class="progress-icons">
+    <h4>שבוע {{currentWeek}} מתוך {{totalWeeks}}</h4>
+    <h4>התקדמות שלנו השבוע</h4>
+    <ngb-progressbar type="success" [value]="25"></ngb-progressbar>
+    <!--<div class="progress-icons">
       <i class="fa fa-bicycle" aria-hidden="true"></i>
       <i class="fa fa-cutlery" aria-hidden="true"></i>
-      <i class="fa fa-home" aria-hidden="true"></i>
+      <i class="fa fa-home warning" aria-hidden="true"></i>
       <i class="fa fa-scissors success" aria-hidden="true"></i>
       <i class="fa fa-user-secret" aria-hidden="true"></i>
-    </div>
+    </div>-->
     <div class="category-buttons">
-      <button pButton type="button" class="btn-category" (click)="navToProg()" icon="fa-bicycle" iconPos="left" label="גינה ציבורית"></button>
-      <button pButton type="button"  class="btn-category success" icon="fa-check" iconPos="left" label="יצירה"></button>
-      <button pButton type="button" class="btn-category" icon="fa-user-secret" iconPos="left" label="לבוש"></button>
-      <button pButton type="button" class="btn-category" icon="fa-home" iconPos="left" label="סידור בית"></button>
-      <button pButton type="button" class="btn-category" icon="fa-cutlery" iconPos="left" label="ארוחה"></button>
+      <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')" [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left" label="גינה ציבורית"></button>
+      <button pButton type="button" (click)="navToProg('יצירה')"  class="btn-category" [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left" label="יצירה"></button>
+      <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0" icon="fa-user-secret" iconPos="left" label="לבוש"></button>
+      <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category" [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left" label="עצמאות בבית"></button>
+      <button pButton type="button" (click)="navToProg('ארוחה')" class="btn-category" [disabled]="foodActivities.length ===0" icon="fa-cutlery" iconPos="left" label="ארוחה {{foodActivities.length}}"></button>
     </div>
 
   </p-tabPanel>
