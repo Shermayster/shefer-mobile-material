@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 @Injectable()
 export class HttpService {
 
+    //patientApi = 'http://localhost:53560/api/Family?password=321321321';
     patientApi = 'http://localhost:53560/api/Family?password=321321321';
     tipApi = 'http://localhost:4200/app/mock/tips.json';
     constructor(private http:Http) { }
