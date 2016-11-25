@@ -10,8 +10,8 @@ import {Observable} from "rxjs";
 export class HttpService {
 
     //patientApi = 'http://localhost:53560/api/Family?password=321321321';
-    patientApi = 'http://localhost:53560/api/Family?password=321321321';
-    tipApi = 'http://localhost:4200/app/mock/tips.json';
+    patientApi = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/Family?password=321321321';
+    tipApi = '/app/mock/tips.json';
     constructor(private http:Http) { }
 
    getFamily() {
