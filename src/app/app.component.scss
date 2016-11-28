@@ -70,9 +70,8 @@ img {
   }
   .ui-button {
     display: block;
-    width: 12rem;
     margin: .5rem auto;
-    width: 14rem;
+    width: 16rem;
     font-size: 1.5rem;
     text-align: right;
     &.success {
@@ -90,6 +89,10 @@ img {
 }
 .feedback-buttons {
   @extend .category-buttons;
+  h2 {
+    font-weight: bold;
+    text-align: center;
+  }
   .ui-button {
     &.success-btn {
       @extend .success;
@@ -109,5 +112,42 @@ img {
     color: #ffffff;
     text-shadow: 0 0 #3b3b3b;
     background-color: #FF5964;
+  }
+}
+.finishBtn {
+  @extend .category-buttons;
+}
+
+.feedback-success {
+  .card-header {
+    color:white;
+    font-weight: bold;
+    background-color: $success-background;
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  img {
+    width: 100%;
+  }
+  .ui-button {
+    margin: .5rem auto;
+    font-size: 1.5rem;
+  }
+  .ui-button-text-icon-left .fa {
+    margin-top: -.8rem;
+  }
+}
+.feedback-almost {
+  @extend .feedback-success;
+  .card-header {
+    background-color: $primary-color;
+  }
+}
+.feedback-didntdo {
+  @extend .feedback-success;
+  .card-header {
+    background-color: $secondary-dark-color;
   }
 }

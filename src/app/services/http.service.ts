@@ -5,13 +5,17 @@
 import { Injectable } from '@angular/core';
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
+import {PatientActivity, ActivitiesResponse} from "../models/pateind.model";
 
 @Injectable()
 export class HttpService {
 
-    //patientApi = 'http://localhost:53560/api/Family?password=321321321';
-    patientApi = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/Family?password=321321321';
-    tipApi = '/app/mock/tips.json';
+    patientApi = 'http://localhost:53560/api/Family?password=321321321';
+   // patientApi = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/Family?password=321321321';
+    //patientApi = 'http://sherm84-001-site1.htempurl.com/api/Family?password=321321321';
+    feedBackApi= 'http://localhost:53560/api/feedback';
+    updateActivityApi = 'http://localhost:53560/api/updateActivity';
+    tipApi = '../mock/tips.json';
     constructor(private http:Http) { }
 
    getFamily() {
@@ -50,5 +54,13 @@ export class HttpService {
         }
       )
       .catch(this.handleError);
+  }
+
+  updateResponse(activityFeedback:ActivitiesResponse) {
+    return this.http.post(this.feedBackApi, activityFeedback);
+  }
+
+  updateActivity(activity: PatientActivity) {
+      return this.http.put(this.updateActivityApi, activity);
   }
 }

@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+
+  <div class="card feedback-success" *ngIf="activity.activityResponce === 'הצלחנו'">
+    <div class="card-header">
+      הצלחנו
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">  איזה יופי,
+      </h4>
+
+      <p class="card-text">  הצלחתם להשלים פעילות של {{activity.activityNameParent}}</p>
+      <img src="../assets/pics/feedback-pics/salon_bg_positive.png">
+      <p>  הידד, אתם בדרך הנכונה!</p>
+      <button pButton (click)="goToStart()" type="button" label="סיום" icon="fa fa-envelope-o" iconPos="left"></button>
+    </div>
+  </div>
+
+  <div class="card feedback-almost" *ngIf="activity.activityResponce === 'כמעט הצלחנו'">
+    <div class="card-header">
+      כמעט הצלחנו
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">
+        לא לשכוח,
+      </h4>
+
+      <p class="card-text">
+        לכל אחד מאתנו יש משהו שאנחנו חזקים בו.
+        </p>
+      <img src="../assets/pics/feedback-pics/salon_bg_almost1.png">
+      <button pButton (click)="goToStart()" type="button" label="חזרה" icon="fa fa-undo" iconPos="left"></button>
+    </div>
+  </div>
+
+<div class="card feedback-didntdo" *ngIf="activity.activityResponce === 'לא ביצענו'">
+    <div class="card-header">
+      לא ביצענו,
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">
+        יופי שהתחלתם,
+      </h4>
+      <p class="card-text">
+
+       יש לכם כוחות פלא מיוחדים,
+        <br>
+        תנסו ותצליחו!
+      </p>
+      <img src="../assets/pics/feedback-pics/salon_bg_didntdo1.png">
+      <button pButton (click)="goToStart()" type="button" label="חזרה" icon="fa fa-undo" iconPos="left"></button>
+    </div>
+  </div>

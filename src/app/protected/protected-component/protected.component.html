@@ -23,10 +23,10 @@
       <i class="fa fa-user-secret" aria-hidden="true"></i>
     </div>-->
     <div class="category-buttons">
-      <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')" [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left" label="גינה ציבורית"></button>
-      <button pButton type="button" (click)="navToProg('יצירה')"  class="btn-category" [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left" label="יצירה"></button>
-      <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0" icon="fa-user-secret" iconPos="left" label="לבוש"></button>
-      <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category" [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left" label="עצמאות בבית"></button>
+      <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')" [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left" label="גינה ציבורית {{outdoorActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('יצירה')"  class="btn-category" [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left" label="יצירה {{creativityActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0" icon="fa-user-secret" iconPos="left" label="לבוש {{clothesActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category" [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left" label="עצמאות בבית {{independenceActivity.length}}"></button>
       <button pButton type="button" (click)="navToProg('ארוחה')" class="btn-category" [disabled]="foodActivities.length ===0" icon="fa-cutlery" iconPos="left" label="ארוחה {{foodActivities.length}}"></button>
     </div>
 

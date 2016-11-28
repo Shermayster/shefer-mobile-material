@@ -39,7 +39,7 @@ export class ProtectedComponent implements OnInit {
       this.independenceActivity = this.filterActivity('עצמאות בבית');
       this.creativityActivity = this.filterActivity('יצירה');
       this.outdoorActivity = this.filterActivity( 'גינה ציבורית');
-      this.finishedActivities = this.activeProgram.patientActivityList.filter(activity => activity.activityStatus === 'finished');
+      this.finishedActivities = this.activeProgram.patientActivityList.filter(activity => activity.activityResponce === 'הצלחנו');
       this.currentWeek = this.activeProgram.currentWeek;
       this.totalWeeks = this.activeProgram.duration;
       //this.progressBar = ((this.finishedActivities.length)/(this.activeProgram.patientActivityList.length))*100;
@@ -52,9 +52,6 @@ export class ProtectedComponent implements OnInit {
     findActiveProgram(family: PatientBase):ActivitiesProgram {
       return family.program.filter(program => program.status === true)[0];
     }
-
-
-
 
 
     setActivities(group) {
@@ -80,7 +77,7 @@ export class ProtectedComponent implements OnInit {
     }
 
     filterActivity(activityName) {
-      return this.activeProgram.patientActivityList.filter(activity => activity.activityType === activityName);
+      return this.activeProgram.patientActivityList.filter(activity => activity.activityType === activityName && activity.activityResponce !== 'הצלחנו');
     }
 
 

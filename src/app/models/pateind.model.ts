@@ -82,7 +82,7 @@ export class PatientActivity {
   activityStatus:string;
   programId:number;
   activityId:number;
-  activityGroup:number;
+  activityGroupAge:number;
   activityName:string;
   activityType:string;
   rationaleCategory: string;
@@ -95,7 +95,7 @@ export class PatientActivity {
     activityStatus?:string,
     programId?:number,
     activityId?:number,
-    activityGroup?:number,
+    activityGroupAge?:number,
     activityName?:string,
     activityType?:string,
     rationaleCategory?: string,
@@ -108,12 +108,29 @@ export class PatientActivity {
     this.activityStatus = activity.activityStatus || "";
     this.programId = activity.programId || null;
     this.activityId = activity.activityId || null;
-    this.activityGroup = activity.activityGroup || null;
+    this.activityGroupAge = activity.activityGroupAge || null;
     this.activityName = activity.activityName || null;
     this.activityType = activity.activityType || null;
     this.rationaleCategory = activity.rationaleCategory || '';
     this.activityNameParent = activity.activityNameParent || '';
     this.description = activity.description || '';
+  }
+}
 
+export class ActivitiesResponse {
+  programId:number;
+  activityName: string;
+  activityResponse: string;
+  week: number;
+  constructor(activityFeedback: {
+    programId?:number,
+    activityName?: string,
+    activityResponse?: string,
+    week?: number
+  } = {}) {
+    this.programId = activityFeedback.programId || null;
+    this.activityName = activityFeedback.activityName || "";
+    this.activityResponse = activityFeedback.activityResponse || "";
+    this.week = activityFeedback.week || null;
   }
 }

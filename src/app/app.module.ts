@@ -20,6 +20,7 @@ import {HttpService} from "./services/http.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {DataService, FamilyData} from "./services/data.service";
 import {ProgramService, ActivitiesGroup, Activity} from "./services/program.service";
+import {ResponseComponent} from "./protected/response-component/response-component";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {ProgramService, ActivitiesGroup, Activity} from "./services/program.serv
     ProgramComponent,
     SignInComponent,
     ProtectedComponent,
-    TaskComponent
+    TaskComponent,
+    ResponseComponent
   ],
   imports: [
     BrowserModule,
