@@ -25,24 +25,15 @@ export class ProtectedComponent implements OnInit {
     creativityActivity: PatientActivity[];
     outdoorActivity: PatientActivity[];
     finishedActivities: PatientActivity[];
-    progressBar: number[];
+    progressBar: number;
 
     constructor(private dataService:DataService, private httpService:HttpService, private router: Router, private programService: ProgramService ) { }
 
     ngOnInit() {
-      this.patient = this.dataService.getFamilyData();
-      this.activeProgram = this.findActiveProgram(this.patient);
       this.httpService.getTips()
         .subscribe(tip => this.tip = tip);
-      this.foodActivities = this.filterActivity('ארוחה');
-      this.clothesActivity = this.filterActivity('לבוש');
-      this.independenceActivity = this.filterActivity('עצמאות בבית');
-      this.creativityActivity = this.filterActivity('יצירה');
-      this.outdoorActivity = this.filterActivity( 'גינה ציבורית');
-      this.finishedActivities = this.activeProgram.patientActivityList.filter(activity => activity.activityResponce === 'הצלחנו');
-      this.currentWeek = this.activeProgram.currentWeek;
-      this.totalWeeks = this.activeProgram.duration;
-      //this.progressBar = ((this.finishedActivities.length)/(this.activeProgram.patientActivityList.length))*100;
+      this.showProgram();
+
     }
     navToProg(group) {
       this.setActivities(group);
@@ -50,7 +41,7 @@ export class ProtectedComponent implements OnInit {
     }
 
     findActiveProgram(family: PatientBase):ActivitiesProgram {
-      return family.program.filter(program => program.status === true)[0];
+      return family.program.find(program => program.status === true);
     }
 
 
@@ -77,9 +68,41 @@ export class ProtectedComponent implements OnInit {
     }
 
     filterActivity(activityName) {
-      return this.activeProgram.patientActivityList.filter(activity => activity.activityType === activityName && activity.activityResponce !== 'הצלחנו');
+      return this.activeProgram.patientActivityList.filter(activity => activity.activityType.includes(activityName) && activity.activityRestponce !== 'הצלחנו');
     }
 
+    calcProgress() {
+        return (this.finishedActivities.length/this.activeProgram.patientActivityList.length)*100;
+
+    }
+
+  startNewWeek() {
+      if(this.activeProgram.currentWeek < this.activeProgram.duration){
+        this.activeProgram.currentWeek ++;
+        this.activeProgram.patientActivityList.forEach(activity => {
+          activity.activityRestponce = '';
+        });
+
+        this.httpService.updateProgram(this.activeProgram).subscribe(
+          res => this.showProgram()
+        );
+      }
+
+  }
+
+  showProgram() {
+    this.patient = this.dataService.getFamilyData();
+    this.activeProgram = this.findActiveProgram(this.patient);
+    this.foodActivities = this.filterActivity('ארוחה');
+    this.clothesActivity = this.filterActivity('לבוש');
+    this.independenceActivity = this.filterActivity('עצמאות בבית');
+    this.creativityActivity = this.filterActivity('יצירה');
+    this.outdoorActivity = this.filterActivity( 'גינה ציבורית');
+    this.finishedActivities = this.activeProgram.patientActivityList.filter(activity => activity.activityRestponce === 'הצלחנו');
+    this.currentWeek = this.activeProgram.currentWeek;
+    this.totalWeeks = this.activeProgram.duration;
+    this.progressBar = this.calcProgress();
+  }
 
 
 }

@@ -5,21 +5,24 @@
 import { Injectable } from '@angular/core';
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
-import {PatientActivity, ActivitiesResponse} from "../models/pateind.model";
+import {PatientActivity, ActivitiesResponse, ActivitiesProgram} from "../models/pateind.model";
+import {Program} from "webdriver-manager/built/lib/cli";
 
 @Injectable()
 export class HttpService {
 
-    patientApi = 'http://localhost:53560/api/Family?password=321321321';
-   // patientApi = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/Family?password=321321321';
-    //patientApi = 'http://sherm84-001-site1.htempurl.com/api/Family?password=321321321';
-    feedBackApi= 'http://localhost:53560/api/feedback';
-    updateActivityApi = 'http://localhost:53560/api/updateActivity';
+    //apiPath = 'http://localhost:53560/api/';
+    apiPath = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/';
+    //apiPath = 'http://sherm84-001-site1.htempurl.com/api/';
+    patientApi = this.apiPath + 'Family?password=';
+    feedBackApi= this.apiPath + 'feedback';
+    updateActivityApi = this.apiPath + 'updateActivity';
     tipApi = '../mock/tips.json';
+    updateProgramApi = this.apiPath + 'Program';
     constructor(private http:Http) { }
 
-   getFamily() {
-      return this.http.get(this.patientApi)
+   getFamily(pass:string) {
+      return this.http.get(this.patientApi + pass)
         .map(this.extractData)
         .catch(this.handleError);
     }
@@ -62,5 +65,9 @@ export class HttpService {
 
   updateActivity(activity: PatientActivity) {
       return this.http.put(this.updateActivityApi, activity);
+  }
+
+  updateProgram(program: ActivitiesProgram) {
+      return this.http.put(this.updateProgramApi+'/'+ program.programID, program)
   }
 }

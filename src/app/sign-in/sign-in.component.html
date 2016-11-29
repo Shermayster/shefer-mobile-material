@@ -5,10 +5,13 @@
 
   <h3>אפליקציה לאימון הורים עבור ילדיהם בתחום הריפוי ועיסוק.</h3>
   <div>
-    <input type="password" pInputText />
+    <form>
+      <input type="password" pInputText #pass (ngModel)="pass.value" />
+    </form>
+
   </div>
   <div>
-    <button pButton type="button" (click)="submit()" label="התחבר"></button>
+    <button pButton type="button" (click)="submit(pass.value)" label="התחבר"></button>
   </div>
 </p-panel>
 

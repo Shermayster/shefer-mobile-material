@@ -17,8 +17,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit() {
-    this.httpService.getFamily()
+  submit(pass:string) {
+    this.httpService.getFamily(pass)
       .subscribe(data => {
         this.dataService.setFamilyData(data);
         this.router.navigate(['./protected'])

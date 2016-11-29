@@ -58,7 +58,7 @@ export class TaskComponent implements OnInit {
   }
 
   addResponse(response) {
-    this.activity.activityResponce = response;
+    this.activity.activityRestponce = response;
 
     let feedback = new ActivitiesResponse();
     feedback.programId = this.activity.programId;

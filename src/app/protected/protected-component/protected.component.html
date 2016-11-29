@@ -14,21 +14,31 @@
   <p-tabPanel header="תוכנית" leftIcon="fa-tasks">
     <h4>שבוע {{currentWeek}} מתוך {{totalWeeks}}</h4>
     <h4>התקדמות שלנו השבוע</h4>
-    <ngb-progressbar type="success" [value]="25"></ngb-progressbar>
-    <!--<div class="progress-icons">
-      <i class="fa fa-bicycle" aria-hidden="true"></i>
-      <i class="fa fa-cutlery" aria-hidden="true"></i>
-      <i class="fa fa-home warning" aria-hidden="true"></i>
-      <i class="fa fa-scissors success" aria-hidden="true"></i>
-      <i class="fa fa-user-secret" aria-hidden="true"></i>
-    </div>-->
-    <div class="category-buttons">
+    <ngb-progressbar type="info" [animated]="true" [value]="progressBar"></ngb-progressbar>
+    <div class="category-buttons" *ngIf="activeProgram.patientActivityList.length !== finishedActivities.length">
       <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')" [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left" label="גינה ציבורית {{outdoorActivity.length}}"></button>
       <button pButton type="button" (click)="navToProg('יצירה')"  class="btn-category" [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left" label="יצירה {{creativityActivity.length}}"></button>
       <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0" icon="fa-user-secret" iconPos="left" label="לבוש {{clothesActivity.length}}"></button>
       <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category" [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left" label="עצמאות בבית {{independenceActivity.length}}"></button>
       <button pButton type="button" (click)="navToProg('ארוחה')" class="btn-category" [disabled]="foodActivities.length ===0" icon="fa-cutlery" iconPos="left" label="ארוחה {{foodActivities.length}}"></button>
     </div>
+
+    <div *ngIf="activeProgram.patientActivityList.length === finishedActivities.length" class="weekFinished">
+      כל הכבוד!
+      סיימנו שבוע {{currentWeek}}
+      <div *ngIf="currentWeek < totalWeeks">
+
+        מוכנים לשבוע הבא?
+        <button pButton type="button" (click)="startNewWeek()" class="btn-primary" label="התחל שבוע חדש!"></button>
+      </div>
+
+      <div *ngIf="currentWeek === totalWeeks">
+        סיימנו את התוכנית
+        <br>
+        לקבלת תוכנית פעילויות חדשה, אנא פנה למטפל בריפוי בעיסוק
+      </div>
+    </div>
+
 
   </p-tabPanel>
 </p-tabView>
