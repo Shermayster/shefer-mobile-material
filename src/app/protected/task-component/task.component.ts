@@ -17,11 +17,11 @@ export class TaskComponent implements OnInit {
     showButtons:boolean = false;
     imgUrl:string;
     currentGroup:PatientActivity[];
-    homePickUrl = "../assets/pics/category-pics/home.png";
-    cookPickUrl = "../assets/pics/category-pics/cook11.png";
-    creativityPickUrl = "../assets/pics/category-pics/creativity.png";
-    outdoorPickUrl = "../assets/pics/category-pics/gina_FINAL.png";
-    closesPickUrl = "../assets/pics/category-pics/clothes.png";
+    homePickUrl = "assets/pics/category-pics/home.png";
+    cookPickUrl = "assets/pics/category-pics/cook11.png";
+    creativityPickUrl = "assets/pics/category-pics/creativity.png";
+    outdoorPickUrl = "assets/pics/category-pics/gina_FINAL.png";
+    closesPickUrl = "assets/pics/category-pics/clothes.png";
     activity: PatientActivity;
 
   constructor(private programService: ProgramService, private router:Router, private httpService:HttpService, private dataService:DataService) { }

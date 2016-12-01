@@ -12,21 +12,22 @@ import {DataService} from "../services/data.service";
 export class SignInComponent implements OnInit {
   @Input() signin:boolean;
   @Output() enterTo = new EventEmitter();
+  showError:boolean = false;
   constructor( private router: Router, private httpService:HttpService, private dataService:DataService) { }
 
   ngOnInit() {
   }
 
-  submit(pass:string) {
+  submit(pass: string) {
+    this.showError = false;
     this.httpService.getFamily(pass)
       .subscribe(data => {
         this.dataService.setFamilyData(data);
         this.router.navigate(['./protected'])
       },
-      error=> {
-        //todo add error handling
-      }
-      )
+      error => {
+        this.showError = true;
+      });
   }
 
 }

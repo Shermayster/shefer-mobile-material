@@ -1,8 +1,10 @@
+import { OdotComponent } from './odot-component/odot-component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {TabMenuModule} from "primeng/primeng";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
@@ -30,6 +32,7 @@ import {ResponseComponent} from "./protected/response-component/response-compone
     SignInComponent,
     ProtectedComponent,
     TaskComponent,
+    OdotComponent,
     ResponseComponent
   ],
   imports: [
@@ -47,7 +50,8 @@ import {ResponseComponent} from "./protected/response-component/response-compone
     NgbModule.forRoot(),
     ROUTES
   ],
-  providers: [HttpService, DataService, FamilyData, ProgramService, ActivitiesGroup, Activity],
+  providers: [HttpService, DataService, FamilyData, ProgramService, ActivitiesGroup, Activity,
+  {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

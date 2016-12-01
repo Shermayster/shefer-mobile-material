@@ -1,6 +1,6 @@
 <p-panel class="sign-in">
   <div class="logo center">
-    <img src="../assets/pics/logo_mayo.png" alt="logo">
+    <img src="assets/pics/logo_mayo.png" alt="logo">
   </div>
 
   <h3>אפליקציה לאימון הורים עבור ילדיהם בתחום הריפוי ועיסוק.</h3>
@@ -14,6 +14,9 @@
     <button pButton type="button" (click)="submit(pass.value)" label="התחבר"></button>
   </div>
 </p-panel>
+<div class="alert alert-danger" *ngIf="showError">
+הסיסמא לא נכונה
+</div>
 
 
 

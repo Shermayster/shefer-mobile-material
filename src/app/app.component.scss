@@ -88,6 +88,7 @@ img {
   @extend .category-buttons;
 }
 .feedback-buttons {
+  margin-top: .5rem;
   @extend .category-buttons;
   h2 {
     font-weight: bold;

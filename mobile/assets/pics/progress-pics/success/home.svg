@@ -1,0 +1,11 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100">
+<defs>
+<linearGradient id="bg-gradient" x1="0%" y1="0%" x2="50%" y2="100%"><stop stop-color="#ffe74b" offset="0.0027548209366391"/><stop stop-color="#ead544" offset="1"/></linearGradient>
+
+ <g id="bg" fill="url(#bg-gradient)" class="bg"><path d="M100,77.646C100,89.941,89.941,100,77.646,100H22.353C10.059,100,0,89.941,0,77.646V22.353 C0,10.059,10.059,0,22.353,0h55.295C89.941,0,100,10.059,100,22.353V77.646z"/></g> 
+ <path fill="#329ef2" id="i-282" d="M43,17.551V48H28V32h-8v16H5V17.551L24,0.662L43,17.551z"/> 
+</defs>
+<use x="0" y="0" class="bg" xlink:href="#bg"/>
+<use x="26" y="26" xlink:href="#i-282"/>
+<use x="0" y="0" xlink:href="#fg"/>
+</svg>

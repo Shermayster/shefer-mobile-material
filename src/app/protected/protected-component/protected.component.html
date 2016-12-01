@@ -3,12 +3,52 @@
     <h1 *ngIf="patient">שלום {{patient.contact.childName}}, מאוד שמח לראות אותך!</h1>
 
     <div>
-      <img src="../assets/pics/generaldmot.svg" alt="">
+      <img src="assets/pics/generaldmottip.png" alt="tip picture">
     </div>
     <div class="tip-panel">
       <p-panel header="טיפ למחשבה" *ngIf="tip">
         {{tip}}
       </p-panel>
+      <p-accordion>
+        <p-accordionTab header="הנחיות להורה">
+          <strong>הורים יקרים,</strong>
+          <ul>
+            <li>
+              אנו מגישים לכם תוכנית לפעילויות במסגרת הבית והסביבה כפי שנקבע על ידי המטפל בריפוי בעיסוק בהתאם
+              לאבחון/הערכה שנקבע לילדכם.
+
+            </li>
+            <li>
+              ניתן לפנות למטפל בריפוי בעיסוק בכל שאלה או בעיה שעולה במהלך הפעילות עצמה.
+            </li>
+            <li>
+              להתחלה יש לבחור בתפריט הצף :
+              לפעילויות ושם ניתן לבחור את הקטגוריה הרצויה .
+              במסך שנפתח יופיעו דגשים חשובים
+              לקטגוריה והפעילויות הרצויות לביצוע .
+
+            </li>
+            <li>
+              <strong>
+                אין חשיבות לרצף בחירת הקטגוריות או הפעילויות .
+              </strong>
+
+
+            </li>
+            <li>
+              תחת כל קטגוריה מופיעות הפעילויות שנבחרו על ידי המטפל.
+
+            </li>
+            <li>
+              במידה ואין פעילויות תחת קטגוריה שבחרתם וברצונכם להוסיפה ניתן לפנות למטפל והוא יעדכן את התוכנית בהתאם.
+
+            </li>
+          </ul>
+        </p-accordionTab>
+        <p-accordionTab header="אודות">
+<odot-component></odot-component>
+        </p-accordionTab>
+      </p-accordion>
     </div>
   </p-tabPanel>
   <p-tabPanel header="תוכנית" leftIcon="fa-tasks">
@@ -16,11 +56,20 @@
     <h4>התקדמות שלנו השבוע</h4>
     <ngb-progressbar type="info" [animated]="true" [value]="progressBar"></ngb-progressbar>
     <div class="category-buttons" *ngIf="activeProgram.patientActivityList.length !== finishedActivities.length">
-      <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')" [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left" label="גינה ציבורית {{outdoorActivity.length}}"></button>
-      <button pButton type="button" (click)="navToProg('יצירה')"  class="btn-category" [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left" label="יצירה {{creativityActivity.length}}"></button>
-      <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0" icon="fa-user-secret" iconPos="left" label="לבוש {{clothesActivity.length}}"></button>
-      <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category" [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left" label="עצמאות בבית {{independenceActivity.length}}"></button>
-      <button pButton type="button" (click)="navToProg('ארוחה')" class="btn-category" [disabled]="foodActivities.length ===0" icon="fa-cutlery" iconPos="left" label="ארוחה {{foodActivities.length}}"></button>
+      <button pButton type="button" class="btn-category" (click)="navToProg('גינה ציבורית')"
+              [disabled]="outdoorActivity.length ===0" icon="fa-bicycle" iconPos="left"
+              label="גינה ציבורית {{outdoorActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('יצירה')" class="btn-category"
+              [disabled]="creativityActivity.length ===0" icon="fa-check" iconPos="left"
+              label="יצירה {{creativityActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('לבוש')" [disabled]="clothesActivity.length ===0"
+              icon="fa-user-secret" iconPos="left" label="לבוש {{clothesActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('עצמאות בבית')" class="btn-category"
+              [disabled]="independenceActivity.length ===0" icon="fa-home" iconPos="left"
+              label="עצמאות בבית {{independenceActivity.length}}"></button>
+      <button pButton type="button" (click)="navToProg('ארוחה')" class="btn-category"
+              [disabled]="foodActivities.length ===0" icon="fa-cutlery" iconPos="left"
+              label="ארוחה {{foodActivities.length}}"></button>
     </div>
 
     <div *ngIf="activeProgram.patientActivityList.length === finishedActivities.length" class="weekFinished">
