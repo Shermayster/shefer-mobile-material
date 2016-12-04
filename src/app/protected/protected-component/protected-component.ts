@@ -26,6 +26,7 @@ export class ProtectedComponent implements OnInit {
     outdoorActivity: PatientActivity[];
     finishedActivities: PatientActivity[];
     progressBar: number;
+    isFirst:boolean = true;
 
     constructor(private dataService:DataService, private httpService:HttpService, private router: Router, private programService: ProgramService ) { }
 
@@ -33,7 +34,8 @@ export class ProtectedComponent implements OnInit {
       this.httpService.getTips()
         .subscribe(tip => this.tip = tip);
       this.showProgram();
-
+      this.isFirst = this.dataService.getFirstEnter() || true;
+      this.dataService.setFirstEntertoFalse();
     }
     navToProg(group) {
       this.setActivities(group);

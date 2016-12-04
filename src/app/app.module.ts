@@ -20,7 +20,7 @@ import {TaskComponent} from "./protected/task-component/task.component";
 import {AccordionModule} from "primeng/components/accordion/accordion";
 import {HttpService} from "./services/http.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {DataService, FamilyData} from "./services/data.service";
+import {DataService, FamilyData, IsFirstEnter} from "./services/data.service";
 import {ProgramService, ActivitiesGroup, Activity} from "./services/program.service";
 import {ResponseComponent} from "./protected/response-component/response-component";
 
@@ -50,7 +50,7 @@ import {ResponseComponent} from "./protected/response-component/response-compone
     NgbModule.forRoot(),
     ROUTES
   ],
-  providers: [HttpService, DataService, FamilyData, ProgramService, ActivitiesGroup, Activity,
+  providers: [HttpService, DataService, FamilyData, ProgramService, ActivitiesGroup, Activity,IsFirstEnter,
   {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })

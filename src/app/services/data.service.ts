@@ -6,6 +6,9 @@ import {HttpService} from "./http.service";
 import {PatientBase} from "../models/pateind.model";
 import {Router} from "@angular/router";
 
+export class IsFirstEnter {
+  isFirst:boolean;
+}
 export class FamilyData {
   _familyData:PatientBase;
 }
@@ -13,7 +16,7 @@ export class FamilyData {
 @Injectable()
 export class DataService {
 
-    constructor(private _httpService: HttpService, public _familyData:FamilyData, private router: Router) { }
+    constructor(private _httpService: HttpService, public _familyData:FamilyData, private router: Router, private _isFirstEnter: IsFirstEnter ) { }
 
     setFamilyData(data:PatientBase) {
       this._familyData._familyData = data;
@@ -29,6 +32,12 @@ export class DataService {
       return this._familyData._familyData;
     }
 
+    setFirstEntertoFalse() {
+      this._isFirstEnter.isFirst = false;
+    }
 
+    getFirstEnter() {
+      return this._isFirstEnter.isFirst;
+    }
 
 }

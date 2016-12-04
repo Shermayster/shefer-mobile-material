@@ -1,18 +1,22 @@
 <p-panel class="sign-in">
   <div class="logo center">
-    <img src="assets/pics/logo_mayo.png" alt="logo">
+    <img src="assets/pics/logo_mayo.jpg" alt="logo">
   </div>
 
-  <h3>אפליקציה לאימון הורים עבור ילדיהם בתחום הריפוי ועיסוק.</h3>
+  <h3>
+    ילדים והורים מתרגלים ריפוי ועיסוק
+  </h3>
+  <form (ngSubmit)="onSubmit(pass.value)" #form="ngForm" >
   <div>
-    <form>
-      <input type="password" pInputText #pass (ngModel)="pass.value" />
-    </form>
+
+      <input type="password" class="form-control enter-page-input" #pass (ngModel)="pass.value" />
+
 
   </div>
   <div>
-    <button pButton type="button" (click)="submit(pass.value)" label="התחבר"></button>
+    <button type="submit"  class="btn btn-primary">התחבר</button>
   </div>
+  </form>
 </p-panel>
 <div class="alert alert-danger" *ngIf="showError">
 הסיסמא לא נכונה

@@ -1,13 +1,12 @@
 
 <p-panel header="{{activity.activityType}}">
   <img src="{{imgUrl}}" style="width: 100%" alt="{{activity.activityNameParent}}">
-  <p-accordion [multiple]="true">
-    <p-accordionTab header="{{activity.activityNameParent}}">
+
+    <p-panel header="{{activity.activityNameParent}}">
       {{activity.description}}
-    </p-accordionTab>
-  </p-accordion>
+    </p-panel>
   <div class="finishBtn" >
-    <button pButton type="button" (click)="showButtonsGroup()" *ngIf="!showButtons" label="סיימנו"></button>
+    <button pButton type="button" (click)="showButtonsGroup()" *ngIf="!showButtons" label="איך היינו?"></button>
   </div>
 
   <div class="feedback-buttons" *ngIf="showButtons">

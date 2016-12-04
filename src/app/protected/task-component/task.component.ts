@@ -32,7 +32,7 @@ export class TaskComponent implements OnInit {
     }
 
   getImgUrl() {
-    switch (this.activity.activityType) {
+    switch (this.activity.activityType.trim()) {
       case 'ארוחה':
         this.imgUrl = this.cookPickUrl;
         break;

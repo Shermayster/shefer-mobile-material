@@ -11,8 +11,8 @@ import {Program} from "webdriver-manager/built/lib/cli";
 @Injectable()
 export class HttpService {
 
-   apiPath = 'http://localhost:53560/api/';
-    //apiPath = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/';
+   //apiPath = 'http://localhost:53560/api/';
+    apiPath = 'http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/';
     //apiPath = 'http://sherm84-001-site1.htempurl.com/api/';
     patientApi = this.apiPath + 'Family?password=';
     feedBackApi= this.apiPath + 'feedback';

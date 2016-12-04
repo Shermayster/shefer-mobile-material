@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(pass: string) {
+  onSubmit(pass: string) {
     this.showError = false;
     this.httpService.getFamily(pass)
       .subscribe(data => {

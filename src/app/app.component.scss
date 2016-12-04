@@ -19,6 +19,12 @@ body {
 img {
   width: 170px;
 }
+.link {
+  color: #0275d8 !important;
+}
+.enter-page-input {
+  width: 75vw;
+}
 .tip-panel {
   margin-bottom: 1rem;
   .ui-widget-header {
@@ -54,12 +60,21 @@ img {
 
 }
 .center{
-  img{
-    display: block;
-    margin: 1rem auto;
-    width: 100px;
+   &.logo {
+     img{
+       display: block;
+       margin: 1rem auto;
+       width: 10rem;
+   }
   }
 
+}
+
+.explanation-list {
+  li {
+    margin-right: -1.5rem;
+    margin-top: 1rem;
+  }
 }
 .category-buttons {
   display: flex;
